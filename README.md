@@ -65,8 +65,8 @@ php artisan db:seed
 php artisan route:list
 ```
 
-_User credential:_
-email: `admin@admin.com`
-password: `password`
+_User credential:_ 
+email: `admin@admin.com` 
+password: `password` 
 
 Contact me for more information!
