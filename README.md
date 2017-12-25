@@ -4,7 +4,7 @@
 
 1. Install all Dependencies with composer, using this command:
 ```
-    composer update
+composer update
 ```
 
 2. Create a Mysql database name `ecommerce`
