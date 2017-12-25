@@ -9,7 +9,7 @@ composer update
 
 2. Create a Mysql database name `ecommerce`
 
-3.  Rename file `.env.example` to `.env` and replace the content like this (Change the DB information with yours):
+3.  Rename file `.env.example` to `.env` and replace the content with this one (maybe change the DB informations to suit with your DB config):
 ```
 APP_NAME=Laravel
 APP_ENV=local
