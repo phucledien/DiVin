@@ -37,7 +37,8 @@ Route::get('results', function() {
     $products = App\Product::where('name', 'like' ,'%' . $query . '%')->paginate(3);
 
     return view('results')->with('products', $products)
-                            ->with('query', $query);
+                            ->with('query', $query)
+                            ->with('settings', App\Setting::first());
 });
 
 Auth::routes();

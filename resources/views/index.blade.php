@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="pt100">
-    <div class="stunning-header stunning-header-bg-photo1">    
-            <h3 class="stunning-header-title" style="color: white; margin-left: 60px;">Welcome to DiVin Shop!</h3>
+    <div class="stunning-header stunning-header-bg-photo2">    
+            <h1 class="align-center" style="color: white; font-size: 60px">Welcome to DiVin Shop!</h1>
     </div>
 </div>
 
