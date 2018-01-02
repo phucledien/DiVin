@@ -36,13 +36,6 @@
 @include ('includes.header')
 
 <div class="content-wrapper">
-
-    <div class="pt100">
-        <div class="stunning-header stunning-header-bg-photo1">    
-                <h3 class="stunning-header-title" style="color: white; margin-left: 60px;">Welcome to DiVin Shop!</h3>
-        </div>
-    </div>
-                    
     
     @yield ('content')
        

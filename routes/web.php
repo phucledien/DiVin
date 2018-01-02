@@ -33,6 +33,15 @@ Route::post('cart/checkout', 'CheckoutController@pay')->name('cart.checkout');
 
 Route::resource('products', 'ProductsController');
 
+Route::get('results', function() {
+    $query = request('query');
+    
+    $products = App\Product::where('name', 'like' ,'%' . $query . '%')->paginate(3);
+
+    return view('results')->with('products', $products)
+                            ->with('query', $query);
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

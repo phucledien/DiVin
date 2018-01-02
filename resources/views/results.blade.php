@@ -2,14 +2,16 @@
 
 @section('content')
 
-<div class="pt100">
-    <div class="stunning-header stunning-header-bg-photo1">    
-            <h3 class="stunning-header-title" style="color: white; margin-left: 60px;">Welcome to DiVin Shop!</h3>
-    </div>
+<div class="pt100 align-center">
+    <h2>Search results: {{ $query }}</h2>
 </div>
 
 <div class="container">
-        <div class="row pt120">
+        <div class="row pt100">
+            
+            @if ($products->count() == 0)
+                <h3 class="align-center">Sorry! No product found.</h3>
+            @endif
             <div class="books-grid">
 
             <div class="row mb30">
