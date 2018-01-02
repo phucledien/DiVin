@@ -19,7 +19,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('products.index', ['products' => Product::all()]);
+        return view('admin.products.index', ['products' => Product::all()]);
     }
 
     /**
@@ -29,7 +29,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('admin.products.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class ProductsController extends Controller
 
         Session::flash('success', 'Product created');
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -89,7 +89,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        return view('products.edit', ['product' => Product::find($id)]);
+        return view('admin.products.edit', ['product' => Product::find($id)]);
     }
 
     /**
@@ -131,7 +131,7 @@ class ProductsController extends Controller
 
         Session::flash('success', 'Product updated.');
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**

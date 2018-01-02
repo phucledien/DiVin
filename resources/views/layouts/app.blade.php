@@ -10,6 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shortcut icon" href="{{ asset('divinLogo.gif') }}">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
@@ -40,8 +41,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
-                        <li><a href="{{ route('products.index') }}">Products</a></li>
-                        <li><a href="{{ route('products.create') }}">New product</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -49,7 +48,6 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -76,10 +74,37 @@
             </div>
         </nav>
 
+        @auth
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                        @if ($errors->count() > 0)
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="{{ route('home') }}">Dashboard</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">Categories</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">Create new category</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('products.index') }}">All Products</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('products.create') }}">Create a new product</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">All trashed products</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('setting') }}">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-8">
+                    @if ($errors->count() > 0)
                         <ul class="list-group">
         
                             @foreach ($errors->all() as $error)
@@ -90,12 +115,20 @@
         
                         </ul>
                     @endif
+
+                    @yield ('content')
                 </div>
+
             </div>
             
         </div>
-
-        @yield('content')
+        @else
+            <div class="container">
+                <div class="row">
+                    @yield ('content')
+                </div>
+            </div>
+        @endauth
 
     </div>
 

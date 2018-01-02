@@ -21,13 +21,13 @@
                     </a>
                     <ul class="primary-menu-menu" style="overflow: hidden;">
                         <li class="">
-                            <a href="#">Sticker</a>
+                            <a href="#">Category</a>
                         </li>
                         <li class="">
-                            <a href="#">Lamp</a>
+                            <a href="#about">About Us</a>
                         </li>
                         <li class="">
-                            <a href="#">Desk</a>
+                            <a href="#contact">Contact</a>
                         </li>
                     </ul>
                 </nav>

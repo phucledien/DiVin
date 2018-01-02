@@ -31,8 +31,6 @@ Route::get('cart/checkout', 'CheckoutController@index')->name('cart.checkout');
 
 Route::post('cart/checkout', 'CheckoutController@pay')->name('cart.checkout');
 
-Route::resource('products', 'ProductsController');
-
 Route::get('results', function() {
     $query = request('query');
     
@@ -44,4 +42,12 @@ Route::get('results', function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('dashboard', 'HomeController@index')->name('home');
+
+    Route::resource('products', 'ProductsController');
+
+    Route::get('settings', 'SettingsController@index')->name('setting');
+
+    Route::put('settings', 'SettingsController@update')->name('setting.update');
+});
