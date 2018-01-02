@@ -1,5 +1,5 @@
 ## DiVin project
-### Ecommerce site built with laravel
+### Ecommerce site built with Laravel
 #### How to contribute
 
 1. Install all Dependencies with composer, using this command:
