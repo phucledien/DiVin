@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Session;
+use Cart;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
@@ -156,14 +157,49 @@ class ProductsController extends Controller
     {
         $product = Product::find($id);
 
+        $product->delete();
+
+        Session::flash('success', 'Product is trashed!');
+
+        return redirect()->back();
+    }
+
+    public function trashed()
+    {
+        $products = Product::onlyTrashed()->get();
+
+        return view('admin.products.trashed')->with('products', $products);
+    }
+
+    public function kill($id)
+    {
+        $product = Product::onlyTrashed()->find($id);
+
         if (file_exists($product->image)) {
             unlink($product->image);
         }
 
-        $product->delete();
+        foreach (Cart::content() as $cartItem) {
+            if ($cartItem->id == $product->id) {
+                Cart::remove($cartItem->rowId);
+            }
+        }
 
-        Session::flash('success', 'Product deleted.');
+        $product->forceDelete();
+
+        Session::flash('success', 'Product is deleted permantly!');
 
         return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $product = Product::onlyTrashed()->find($id);
+
+        $product->restore();
+
+        Session::flash('success', 'Product is restored!');
+
+        return redirect()->route('products.index');
     }
 }

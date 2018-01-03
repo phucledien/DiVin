@@ -95,7 +95,7 @@
                             <a href="{{ route('products.create') }}">Create a new product</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="">All trashed products</a>
+                            <a href="{{ route('products.trashed') }}">All trashed products</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('setting') }}">Settings</a>

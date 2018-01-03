@@ -47,6 +47,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('dashboard', 'HomeController@index')->name('home');
 
     Route::resource('products', 'ProductsController');
+    Route::get('trashed', 'ProductsController@trashed')->name('products.trashed');
+    Route::delete('trashed/{id}', 'ProductsController@kill')->name('products.kill');
+    Route::get('trashed/{id}', 'ProductsController@restore')->name('products.restore');
 
     Route::resource('categories', 'CategoriesController');
 

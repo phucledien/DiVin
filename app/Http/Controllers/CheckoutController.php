@@ -25,7 +25,7 @@ class CheckoutController extends Controller
         $charge = Charge::create([
             'amount' => Cart::total() * 100,
             'currency' => 'usd',
-            'description' => 'DeVin shop',
+            'description' => 'DiVin shop',
             'source' => request()->stripeToken
         ]);
 
