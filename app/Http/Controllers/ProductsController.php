@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Session;
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,12 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        if (Category::all()->count() == 0) {
+            Session::flash('info', 'You must have atleast 1 category before create a product!');
+            return redirect()->route('categories.create');
+        }
+
+        return view('admin.products.create')->with('categories', Category::all());
     }
 
     /**
@@ -44,7 +50,8 @@ class ProductsController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'image' => 'required|image'
+            'image' => 'required|image',
+            'category_id' => 'required'
         ]);
 
         $product = new Product;
@@ -61,13 +68,15 @@ class ProductsController extends Controller
 
         $product->price = $request->price;
 
+        $product->category_id = $request->category_id;
+
         $product->image = 'uploads/products/' . $product_image_new_name;
 
         $product->save();
 
         Session::flash('success', 'Product created');
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -89,7 +98,8 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.products.edit', ['product' => Product::find($id)]);
+        return view('admin.products.edit')->with('product', Product::find($id))
+                                            ->with('categories', Category::all());
     }
 
     /**
@@ -105,6 +115,7 @@ class ProductsController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'category_id' => 'required'
         ]);
 
         $product = Product::find($id);
@@ -125,6 +136,7 @@ class ProductsController extends Controller
 
         $product->name = $request->name;
         $product->price = $request->price;
+        $product->category_id = $request->category_id;        
         $product->description = $request->description;
 
         $product->save();

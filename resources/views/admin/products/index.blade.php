@@ -11,6 +11,7 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Price</th>
+                    <th>Category</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
@@ -22,6 +23,7 @@
                             <td><img src="{{ asset($product->image) }}" alt="{{ $product->name . ' image' }}" width="40"></td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>
+                            <td>{{ $product->category->name }}</td>
                             <td>
                                 <a href="{{ route('products.edit', ['id' => $product->id]) }}" class="btn btn-info btn-xs">Edit</button>
                             </td>

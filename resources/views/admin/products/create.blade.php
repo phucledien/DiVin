@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="panel panel-default">
-        <div class="panel-heading">Dashboard</div>
+        <div class="panel-heading">Create a new product</div>
         <div class="panel-body">
             <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -14,6 +14,14 @@
                 <div class="form-group">
                         <label for="price">Price</label>
                         <input type="number" name="price" class="form-control" value="{{ old('price') }}">
+                </div>
+                <div class="form-group">
+                    <label for="category">Select a category</label>
+                    <select name="category_id" id="category" class="form-control">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                         <label for="image">Image</label>

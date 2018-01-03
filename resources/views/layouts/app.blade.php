@@ -83,10 +83,10 @@
                             <a href="{{ route('home') }}">Dashboard</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="">Categories</a>
+                            <a href="{{ route('categories.index') }}">Categories</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="">Create new category</a>
+                            <a href="{{ route('categories.create') }}">Create new category</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('products.index') }}">All Products</a>
@@ -99,6 +99,9 @@
                         </li>
                         <li class="list-group-item">
                             <a href="{{ route('setting') }}">Settings</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ route('register') }}">Register new user</a>
                         </li>
                     </ul>
                 </div>
@@ -136,6 +139,10 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script>
+        @if (session('info'))
+            toastr.info('{{ Session::get('info') }}');
+        @endif
+
         @if (session('success'))
             toastr.success('{{ Session::get('success') }}');
         @endif

@@ -48,6 +48,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::resource('products', 'ProductsController');
 
+    Route::resource('categories', 'CategoriesController');
+
     Route::get('settings', 'SettingsController@index')->name('setting');
 
     Route::put('settings', 'SettingsController@update')->name('setting.update');
