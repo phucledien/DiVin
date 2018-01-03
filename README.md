@@ -1,6 +1,6 @@
 ## DiVin project
 ### Ecommerce site built with Laravel
-#### How to contribute
+#### Setup
 
 1. Install all Dependencies with composer, using this command:
 ```
@@ -55,7 +55,7 @@ PUSHER_APP_SECRET=
 php artisan migrate
 ```
 
-5. Seed your database with user seeder and product seeder:
+5. Seed your database with user and setting seeder:
 ```
 php artisan db:seed
 ```
@@ -65,8 +65,19 @@ php artisan db:seed
 php artisan route:list
 ```
 
-_User credential:_  
+_User credentials:_  
 email: `admin@admin.com`  
-password: `password`  
+password: `password`
+
+### How to contribute
+
+1. Fork this project.
+2. Clone the project you just forked.
+3. Create a new branch.
+4. Update something cool! -> commit && push.
+5. Create pull request (PR).
+6. Receive my many thanks.
+
+_Please detail your changes in the PR (with picture is the best!)_
 
 Contact me for more information!
