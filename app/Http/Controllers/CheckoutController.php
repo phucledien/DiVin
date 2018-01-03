@@ -7,13 +7,14 @@ use Session;
 use Stripe\Stripe;
 use Stripe\Charge;
 use Cart;
+use App\Setting;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
     public function index()
     {
-        return view('checkout');
+        return view('checkout')->with('settings', Setting::first());
     }
 
     public function pay()

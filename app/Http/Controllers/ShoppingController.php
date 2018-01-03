@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Setting;
 use App\Product;
 use Cart;
 use Illuminate\Http\Request;
@@ -44,7 +45,7 @@ class ShoppingController extends Controller
 
     public function cart()
     {
-        return view('cart');
+        return view('cart')->with('settings', Setting::first());
     }
 
     public function cart_delete($id)
