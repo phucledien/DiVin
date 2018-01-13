@@ -11,6 +11,16 @@
 |
 */
 
+Route::post('subscribe', function(){
+    $email = request('email');
+
+    Newsletter::subscribe($email);
+
+    Session::flash('subscribed', 'Successfully subscribe');
+
+    return redirect()->back();
+})->name('subscribe');
+
 Route::get('/', 'FrontEndController@index')->name('index');
 
 Route::get('product/{id}', 'FrontEndController@singleProduct')->name('product.single');
