@@ -8,13 +8,16 @@ use Stripe\Stripe;
 use Stripe\Charge;
 use Cart;
 use App\Setting;
+use App\Category;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
     public function index()
     {
-        return view('checkout')->with('settings', Setting::first());
+        return view('checkout')->with('settings', Setting::first())
+                                ->with('categories', Category::all());
+        
     }
 
     public function pay()

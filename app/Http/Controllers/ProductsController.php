@@ -144,7 +144,7 @@ class ProductsController extends Controller
 
         Session::flash('success', 'Product updated.');
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('products.index');
     }
 
     /**

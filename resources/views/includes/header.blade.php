@@ -20,9 +20,11 @@
                         </span>
                     </a>
                     <ul class="primary-menu-menu" style="overflow: hidden;">
-                        <li class="">
-                            <a href="#">Category</a>
-                        </li>
+                        @foreach ($categories as $category)
+                            <li class="">
+                                <a href="{{ route('category', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                            </li>
+                        @endforeach
                         <li class="">
                             <a href="#about">About Us</a>
                         </li>
