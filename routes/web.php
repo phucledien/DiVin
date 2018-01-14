@@ -80,9 +80,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::resource('categories', 'CategoriesController');
 
+    Route::resource('orders','OrdersController');
+    Route::get('delivery/{id}', 'OrdersController@delivery')->name('orders.delivery');
+
     Route::get('settings', 'SettingsController@index')->name('setting');
 
     Route::put('settings', 'SettingsController@update')->name('setting.update');
 });
-
 Route::get('/error', 'FrontEndController@error')->name('error');

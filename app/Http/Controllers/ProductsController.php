@@ -202,4 +202,8 @@ class ProductsController extends Controller
 
         return redirect()->route('products.index');
     }
+
+
+
+    
 }

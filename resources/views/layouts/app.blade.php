@@ -83,6 +83,9 @@
                             <a href="{{ route('home') }}">Dashboard</a>
                         </li>
                         <li class="list-group-item">
+                            <a href="{{ route('orders.index') }}">Orders</a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="{{ route('categories.index') }}">Categories</a>
                         </li>
                         <li class="list-group-item">
