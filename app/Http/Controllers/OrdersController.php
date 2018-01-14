@@ -10,10 +10,7 @@ use Illuminate\Http\Request;
 class OrdersController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -56,13 +53,13 @@ class OrdersController extends Controller
         $customer->name = $request->name;
         $customer->address = $request->address;
         $customer->number = $request->number;        
+        $customer->products = $request->number; 
 
+        $customer->save();
 
-        $product->save();
+        //Session::flash('success', 'Product created');
 
-        Session::flash('success', 'Product created');
-
-        return redirect()->route('products.index');
+        return redirect()->back();
     }
 
     /**
