@@ -19,4 +19,9 @@ class FrontEndController extends Controller
         return view('single')->with('product', Product::find($id))
                                 ->with('settings', Setting::first());
     }
+
+    public function error()
+    {
+        return view('error')->with('settings', Setting::first());
+    }
 }

@@ -1,13 +1,81 @@
 @extends ('layouts.frontend')
 
 @section('content')
-
     <div class="container-fluid">
         <div class="row medium-padding120 bg-border-color">
+        
             <div class="container">
-
                 <div class="row">
+                   
+                    <div class="col-lg-12">
+                        <div class="order">
+                            <h2 class="h1 order-title align-center">Your Shipping Details</h2>
+                            <form class="order cart-main cart_item total">
+                            <form action="#" method="post" class="cart-main"  >
+                                <table class="shop_table cart">
+                                    <thead class="cart-product-wrap-title-main">
+                                    <tr>
+                                        <th class="product-thumbnail">Product</th>
+                                        <th class="product-quantity">Quantity</th>
+                                        <th class="product-subtotal">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr class="cart_item">
+                                            <td >
+                                                <h5 class="cart-product-title">Họ và tên</h5>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="input-standard-grey input-white" name="">
+                                            </td>
+                                        </tr>
 
+                                        <tr class="cart_item">
+                                            <td >
+                                                <h5 class="cart-product-title">Số điện thoại</h5>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="input-standard-grey input-white" name="">
+                                            </td>
+                                        </tr>
+                                         <tr class="cart_item">
+                                            <td >
+                                                <h5 class="cart-product-title">Địa chỉ</h5>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="input-standard-grey input-white" name="">
+                                            </td>
+                                        </tr>
+
+
+                                    
+
+                                    <tr class="cart_item total">
+
+                                        <td class="product-thumbnail">
+
+
+                                            <div class="cart-product-content">
+                                                <h5 class="cart-product-title">Total:</h5>
+                                            </div>
+
+
+                                        </td>
+
+                                        <td class="product-quantity">
+
+                                        </td>
+
+                                        <td class="product-subtotal">
+                                            <h5 class="total amount">${{ Cart::total() }}</h5>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </form>
+                        </div>
+                    </div>
                     <div class="col-lg-12">
                         <div class="order">
                             <h2 class="h1 order-title align-center">Your Order</h2>
@@ -102,7 +170,7 @@
                                                       data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                                       data-locale="auto">
                                                     </script>
-                                                  </form>
+                                                </form>
                                         </span>
                                     </div>
                                 </div>
@@ -110,9 +178,10 @@
                             </form>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
+ 
         </div>
     </div>
     
