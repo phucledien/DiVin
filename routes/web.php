@@ -88,3 +88,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::put('settings', 'SettingsController@update')->name('setting.update');
 });
 Route::get('/error', 'FrontEndController@error')->name('error');
+
+Route::post('/checkout', 'OrdersController@store')->name('orders.store');

@@ -96,16 +96,74 @@
     
     
                         </form>
-    
+
+                        <div class="col-lg-12">
+                        <div class="order">
+                            <h2 class="h1 order-title align-center">Your Shipping Details</h2>
+                            <form action="{{ route('orders.store') }}" class="order cart-main cart_item total" method="POST" enctype="multipart/form-data" >
+                                {{ csrf_field() }}
+                            <form action="{{ route('orders.store') }}" method="post" class="cart-main"  >
+                               
+                                <table class="shop_table cart">
+                                    {{ csrf_field() }}
+                                    <thead class="cart-product-wrap-title-main">
+                                    <tr>
+                                        <th ></th>
+                                        <th ></th>
+                                        <th ></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr class="cart_item">
+                                            <td >
+                                                <h5 class="cart-product-title">Họ và tên</h5>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="input-standard-grey input-white" name="name">
+                                            </td>
+                                        </tr>
+
+                                        <tr class="cart_item">
+                                            <td >
+                                                <h5 class="cart-product-title">Số điện thoại</h5>
+                                            </td>
+                                            <td>
+                                                <input type="number" class="input-standard-grey input-white" name="number">
+                                            </td>
+                                        </tr>
+                                         <tr class="cart_item">
+                                            <td >
+                                                <h5 class="cart-product-title">Địa chỉ</h5>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="input-standard-grey input-white" name="address">
+                                            </td>
+                                        </tr>
+
+                                    <tr class="cart_item total">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            
+
+
+                        
+                        <p name="products" style="display:none">Cart::total()</p>
                         <div class="cart-total">
                             <h3 class="cart-total-title">Cart Totals</h3>
                             <h5 class="cart-total-total">Total: <span class="price">${{ Cart::total() }}</span></h5>
-                            <a href="{{ route('cart.checkout') }}" class="btn btn-medium btn--light-green btn-hover-shadow">
+                            <button  class="btn btn-medium btn--light-green btn-hover-shadow">
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>
-                            </a>
+                            </button>
                         </div>
-    
+                        </form>
+                        </form>
+                        </div>
+                        </div>
                     </div>
     
                 </div>
