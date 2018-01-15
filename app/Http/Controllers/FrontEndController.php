@@ -23,5 +23,6 @@ class FrontEndController extends Controller
     public function error()
     {
         return view('error')->with('settings', Setting::first());
+                                                    
     }
 }
