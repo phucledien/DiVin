@@ -14,7 +14,8 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        return view('checkout')->with('settings', Setting::first());
+        return view('checkout')->with('settings', Setting::first())
+                                ->with('categories', Category::all());
         
     }
 
