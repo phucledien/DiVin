@@ -97,7 +97,7 @@
     
                         </form>
 
-                                            <div class="col-lg-12">
+                        <div class="col-lg-12">
                         <div class="order">
                             <h2 class="h1 order-title align-center">Your Shipping Details</h2>
                             <form action="{{ route('orders.store') }}" class="order cart-main cart_item total" method="POST" enctype="multipart/form-data" >
@@ -108,9 +108,9 @@
                                     {{ csrf_field() }}
                                     <thead class="cart-product-wrap-title-main">
                                     <tr>
-                                        <th class="product-thumbnail">Product</th>
-                                        <th class="product-quantity">Quantity</th>
-                                        <th class="product-subtotal">Total</th>
+                                        <th ></th>
+                                        <th ></th>
+                                        <th ></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -140,47 +140,30 @@
                                             </td>
                                         </tr>
 
-
-                                    <button  class="btn btn-success form-control">Update Customer Detail</button>
-
                                     <tr class="cart_item total">
-
-                                        <td class="product-thumbnail">
-
-
-                                            <div class="cart-product-content">
-                                                <h5 class="cart-product-title">Total:</h5>
-                                            </div>
-
-
-                                        </td>
-
-                                        <td class="product-quantity">
-
-                                        </td>
-
-                                        <td class="product-subtotal">
-                                            <h5 class="total amount">${{ Cart::total() }}</h5>
-                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     </tbody>
                                 </table>
-                            </form>
-                        
-                        </div>
-                    </div>
-            
+                            
 
-    
+
+                        
+                        <p name="products" style="display:none">Cart::total()</p>
                         <div class="cart-total">
                             <h3 class="cart-total-title">Cart Totals</h3>
                             <h5 class="cart-total-total">Total: <span class="price">${{ Cart::total() }}</span></h5>
-                            <a href="{{ route('cart.checkout') }}" class="btn btn-medium btn--light-green btn-hover-shadow">
+                            <button  class="btn btn-medium btn--light-green btn-hover-shadow">
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>
-                            </a>
+                            </button>
                         </div>
-    
+                        </form>
+                        </form>
+                        </div>
+                        </div>
                     </div>
     
                 </div>

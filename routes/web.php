@@ -62,4 +62,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 });
 Route::get('/error', 'FrontEndController@error')->name('error');
 
-Route::post('/', 'OrdersController@store')->name('orders.store');
+Route::post('/checkout', 'OrdersController@store')->name('orders.store');

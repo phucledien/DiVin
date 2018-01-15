@@ -15,6 +15,7 @@ class CheckoutController extends Controller
     public function index()
     {
         return view('checkout')->with('settings', Setting::first());
+        
     }
 
     public function pay()
@@ -34,7 +35,7 @@ class CheckoutController extends Controller
         Cart::destroy();
 
         Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
-
+           
         return redirect('/');
     }
 }

@@ -53,13 +53,13 @@ class OrdersController extends Controller
         $customer->name = $request->name;
         $customer->address = $request->address;
         $customer->number = $request->number;        
-        $customer->products = $request->number; 
+        //$customer->products = $request->products; 
 
         $customer->save();
 
         //Session::flash('success', 'Product created');
 
-        return redirect()->back();
+        return redirect()->route('cart.checkout');
     }
 
     /**
