@@ -1,3 +1,5 @@
+
+
 /*------------- #BASE --------------*/
 /*------------- #TABLE OF CONTENTS --------------*/
 /*------------------------------------------------------------------
@@ -2917,7 +2919,7 @@ tbody.collapse.in {
 /*------------- #INPUT --------------*/
 input {
   padding: 20px 40px;
-  border-color: transparent;
+  border-color: #463b3b78;
   transition: all .3s ease;
   font-size: 16px;
   color: #acacac;
