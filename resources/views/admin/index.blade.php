@@ -40,6 +40,16 @@
                         </div>
                     </div>
                 </div>
+                 <div class="col-md-3">
+                    <div class="panel panel-info">
+                        <div class="panel-heading text-center">
+                            ORDERS
+                        </div>
+                        <div class="panel-body">
+                            <h1 class="text-center">{{ $orders->count() }}</h1>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-3">
                     <div class="panel panel-success">
                         <div class="panel-heading text-center">

@@ -159,6 +159,8 @@
                                 <span class="text">Checkout</span>
                                 <span class="semicircle"></span>
                             </button>
+                            <br>
+                            <br>
                         </div>
                         </form>
                         </form>
