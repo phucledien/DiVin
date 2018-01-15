@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('number');
+             $table->tinyInteger('delivery')->default('0');
             $table->string('products')->default('lamp, desk');;
             $table->timestamps();
         });
