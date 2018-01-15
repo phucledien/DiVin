@@ -3,19 +3,15 @@
 @section('content')
 
 <div class="pt100">
-    <div class="stunning-header-bg-lightblue">
+    <div class="stunning-header-bg-blue">
         <h1 class="align-center" style="color:white; padding:50px">
-            Search results: {{ $query }} 
+            Category: {{ $category->name }} 
         </h1>
     </div>   
 </div>
 
 <div class="container">
-        <div class="row pt100">
-            
-            @if ($products->count() == 0)
-                <h3 class="align-center">Sorry! No product found.</h3>
-            @endif
+        <div class="row pt120">
             <div class="books-grid">
 
             <div class="row mb30">
