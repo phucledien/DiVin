@@ -52,9 +52,13 @@ class OrdersController extends Controller
 
         $customer->name = $request->name;
         $customer->address = $request->address;
-        $customer->number = $request->number;        
-        //$customer->products = $request->products; 
+        $customer->number = $request->number; 
+        $list = '';       
+        foreach (Cart::content() as $product) {
+            $list = $list.','. $product->name;
+        }
 
+        $customer->products = $list;
         $customer->save();
 
         //Session::flash('success', 'Product created');
