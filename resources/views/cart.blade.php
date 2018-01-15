@@ -119,7 +119,7 @@
                                                 <h5 class="cart-product-title">Họ và tên</h5>
                                             </td>
                                             <td>
-                                                <input type="text" class="input-standard-grey input-white" name="name">
+                                                <input type="text" class="input-standard-grey input-white cus" name="name">
                                             </td>
                                         </tr>
 
@@ -128,7 +128,7 @@
                                                 <h5 class="cart-product-title">Số điện thoại</h5>
                                             </td>
                                             <td>
-                                                <input type="number" class="input-standard-grey input-white" name="number">
+                                                <input type="number" class="input-standard-grey input-white cus" name="number">
                                             </td>
                                         </tr>
                                          <tr class="cart_item">
@@ -136,7 +136,7 @@
                                                 <h5 class="cart-product-title">Địa chỉ</h5>
                                             </td>
                                             <td>
-                                                <input type="text" class="input-standard-grey input-white" name="address">
+                                                <input type="text" class="input-standard-grey input-white cus" name="address">
                                             </td>
                                         </tr>
 
