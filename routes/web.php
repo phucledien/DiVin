@@ -11,6 +11,31 @@
 |
 */
 
+Route::post('subscribe', function(){
+    $email = request('email');
+
+    Newsletter::subscribe($email);
+
+    Session::flash('subscribed', 'Successfully subscribe');
+
+    return redirect()->back();
+})->name('subscribe');
+
+Route::get('catgory/{id}', function($id){
+    $categories = \App\Category::all();
+    
+    $category = \App\Category::find($id);
+
+    $products = $category->products();
+
+    $settings = \App\Setting::first();
+
+    return view('category')->with('categories', $categories)
+                            ->with('category', $category)
+                            ->with('products', $products->paginate(3))
+                            ->with('settings', $settings);                            
+})->name('category');
+
 Route::get('/', 'FrontEndController@index')->name('index');
 
 Route::get('product/{id}', 'FrontEndController@singleProduct')->name('product.single');
@@ -38,7 +63,9 @@ Route::get('results', function() {
 
     return view('results')->with('products', $products)
                             ->with('query', $query)
-                            ->with('settings', App\Setting::first());
+                            ->with('settings', App\Setting::first())
+                            ->with('categories', App\Category::all());
+                            
 });
 
 Auth::routes();
@@ -61,4 +88,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::put('settings', 'SettingsController@update')->name('setting.update');
 });
 
+
 Route::get('/error', 'FrontEndController@error')->name('error');
+
+

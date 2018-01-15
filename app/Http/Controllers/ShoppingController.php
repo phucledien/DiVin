@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Setting;
 use App\Product;
+use App\Category;
 use Cart;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,8 @@ class ShoppingController extends Controller
 
     public function cart()
     {
-        return view('cart')->with('settings', Setting::first());
+        return view('cart')->with('settings', Setting::first())
+                            ->with('categories', Category::all());
     }
 
     public function cart_delete($id)

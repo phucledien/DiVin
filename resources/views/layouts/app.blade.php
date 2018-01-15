@@ -83,6 +83,9 @@
                             <a href="{{ route('home') }}">Dashboard</a>
                         </li>
                         <li class="list-group-item">
+                            <a href="{{ route('orders.index') }}">Orders</a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="{{ route('categories.index') }}">Categories</a>
                         </li>
                         <li class="list-group-item">
@@ -146,6 +149,44 @@
         @if (session('success'))
             toastr.success('{{ Session::get('success') }}');
         @endif
+    </script>
+    <script src="{{ asset('js/chart.min.js') }}"></script>  
+    <script>
+        var labels=[];
+        var value=[];
+        var i=0;
+        @php
+            $date = new DateTime('tomorrow -1 week');
+            $days = DB::table('orders')->select(array(
+                DB::raw('DATE(`created_at`) as `date`'),
+                DB::raw('COUNT(*) as `count`')
+            ))
+            ->where('created_at', '>', $date)
+            ->groupBy('date')
+            ->orderBy('date', 'DESC')
+            ->pluck('count', 'date');
+        @endphp
+        @foreach ($days as $day)
+            labels[i]=$day->date;
+            value[i]=$day->count;
+            i=i+1;
+        @endforeach
+
+        var data={
+            labels:labels,
+            datasets:[
+            { 
+                label:'count of order by "order date"',
+                borderColor:'black',
+                data:value
+            }
+            ]
+        };
+        var context= document.getElementById("lineChart").getContext('2d');
+        var lineChart= new Chart(context,{
+            type: 'line',
+            data: data
+        });
     </script>    
 </body>
 </html>
